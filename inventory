@@ -1,0 +1,11 @@
+[all:children]
+oldgluster
+newgluster
+
+[oldgluster]
+server1
+server2
+
+[newgluster]
+server3
+server4

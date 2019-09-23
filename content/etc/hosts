@@ -1,0 +1,5 @@
+127.0.0.1 localhost
+10.0.0.4 server1.example.com server1
+10.0.0.5 server2.example.com server2
+10.0.0.6 server3.example.com server3
+10.0.0.7 server4.example.com server4
