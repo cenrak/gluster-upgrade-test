@@ -1,8 +1,0 @@
----
-glusterfs:
-  package:
-    full: glusterfs-6.5
-    name: glusterfs-server
-    version: 6.5
-  repo:
-    baseurl: https://buildlogs.centos.org/centos/7/storage/x86_64/gluster-6/

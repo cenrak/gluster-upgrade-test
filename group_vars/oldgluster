@@ -1,8 +1,0 @@
----
-glusterfs:
-  package:
-    full: glusterfs-3.7.20
-    name: glusterfs-server
-    version: 3.7.20
-  repo:
-    baseurl: https://download.gluster.org/pub/gluster/glusterfs/old-releases/3.7/3.7.20/CentOS/epel-7/x86_64/

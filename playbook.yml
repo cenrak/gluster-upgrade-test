@@ -31,9 +31,9 @@
 
   - name: configure gluster repo
     yum_repository:
-      name: "{{ glusterfs.package.full }}"
+      name: "{{ glusterfs_package_full }}"
       description: Gluser HTTPS repo
-      baseurl: "{{ glusterfs.repo.baseurl }}"
+      baseurl: "{{ glusterfs_repo_baseurl }}"
       enabled: yes
       gpgcheck: no
 
@@ -53,12 +53,12 @@
       policy: targeted
       state: permissive
 
-  - name: install "{{ glusterfs.package.full }}" 
+  - name: install "{{ glusterfs_package_full }}" 
     yum:
-      name: "{{ glusterfs.package.name }}"
+      name: "{{ glusterfs_package_name }}"
       state: installed
 
-  - name: Enable "{{ glusterfs.package.name }}"
+  - name: Enable "{{ glusterfs_package_name }}"
     systemd:
       name: glusterd
       state: started
