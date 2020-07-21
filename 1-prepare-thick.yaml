@@ -1,0 +1,42 @@
+---
+- name: Setting up backend
+  hosts: gluster_servers
+  gather_facts: false
+
+  vars:
+     # Firewall setup
+     gluster_infra_fw_ports:
+        - 2049/tcp
+        - 24007/tcp
+        - 54321/tcp
+        - 5900/tcp
+        - 5900-6923/tcp
+        - 5666/tcp
+        - 16514/tcp
+     gluster_infra_fw_services:
+        - glusterfs
+
+     # Set a disk type, Options: JBOD, RAID6, RAID10
+     gluster_infra_disktype: JBOD
+
+     # enable fstrim service so the TRIM command is executed once in a while to clean either ssd or thin/vdo volumes
+     fstrim_service: {
+       enabled: yes,
+       schedule: {         
+         hour: "{{ range(1, 4) | random() }}"
+       }
+      }
+
+     gluster_infra_volume_groups:
+       - { vgname: 'vg_sdb', pvname: '/dev/sdb' }
+
+
+     gluster_infra_thick_lvs:
+       - { vgname: 'vg_sdb', lvname: 'gf_lv_1', size: '9G' }
+
+     # Mount the devices
+     gluster_infra_mount_devices:
+       - { path: '/mnt/brick1', vgname: 'vg_sdb', lvname: 'gf_lv_1' }
+
+  roles:
+     - gluster.infra

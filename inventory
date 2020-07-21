@@ -1,0 +1,2 @@
+[gluster_servers]
+server[1:3]

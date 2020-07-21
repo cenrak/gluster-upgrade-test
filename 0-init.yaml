@@ -1,0 +1,32 @@
+---
+- name: Create Gluster cluster
+  hosts: gluster_servers
+  gather_facts: false
+  tasks:
+    - name: set /etc/hosts
+      copy:
+        src: content/etc/hosts
+        dest: /etc/hosts
+
+    - name: install lvm2 package
+      yum:
+        name: lvm2
+        state: latest
+
+
+    - name: install centos-release-gluster6.noarch
+      yum:
+        name: centos-release-gluster6.noarch
+        state: latest
+
+    - name: Install glusterfs-server
+      yum:
+        name: glusterfs-server
+        state: latest
+
+
+    - name: Star glusterd 
+      systemd:
+        name: glusterd
+        enabled: yes
+        state: started
