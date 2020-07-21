@@ -4,6 +4,7 @@ To help work on a 3-node CentOS 7 gluster cluster, running on 1x(1x2) replicas.
 ## Dependecies:
 * [Vagrant](https://www.vagrantup.com/): Vagrant enables users to create and configure lightweight, reproducible, and portable development environments. 
 * [Ansible](https://www.ansible.com/): The enterprise solution for building and operating automation at scale
+* 30G HDD space, that's besides the VM size
 
 ## How to use this repo:
 * `git clone https://github.com/cenrak/gluster-upgrade-test.git`:Clone the git repository to your server/workstation 
